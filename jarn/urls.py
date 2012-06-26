@@ -1,6 +1,6 @@
 
 from django.conf.urls import patterns, include, url
-from jarn.views import index, authzone, logout_redirect, upload
+from jarn.views import index, logout_redirect, upload
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -9,7 +9,6 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', index),
-    url(r'^auth$', authzone),
     url(r'^login$', 'django.contrib.auth.views.login'),
     url(r'^logout$', logout_redirect),
     url(r'^upload$', upload),

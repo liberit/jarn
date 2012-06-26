@@ -27,11 +27,6 @@ def upload(request):
         form = UploadForm()
     return render_to_response('upload.html', {'form': form}, context_instance=RequestContext(request))
 
-@login_required(login_url='/login')
-def authzone(request):
-    print request.user
-    return render_to_response('index.html')
-
 
 @login_required(login_url='/login')
 def logout_redirect(request):
