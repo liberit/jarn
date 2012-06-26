@@ -1,6 +1,6 @@
 
 from django.conf.urls import patterns, include, url
-from jarn.views import index, logout_redirect, upload
+from jarn.views import index, logout_redirect, upload, documents, document
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -12,6 +12,8 @@ urlpatterns = patterns('',
     url(r'^login$', 'django.contrib.auth.views.login'),
     url(r'^logout$', logout_redirect),
     url(r'^upload$', upload),
+    url(r'^documents$', documents),
+    url(r'^document/(?P<doc_id>\d+)/$', document),
     url(r'^accounts/', include('registration.backends.default.urls')),
     # url(r'^jarn/', include('jarn.foo.urls')),
 

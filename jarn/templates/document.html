@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block page_title %}{{ document.title }}{% endblock %}
+
+{% block content %}
+<div class="post">
+ {{ document.html|safe }}
+</div>
+{% endblock %}

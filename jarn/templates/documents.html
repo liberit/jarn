@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% for doc in documents %}
+<div class="post">
+ <h2 class="title"><a href="/document/{{ doc.id }}">{{ doc.title }}</a></h2>
+</div>
+{% endfor %}
+{% endblock %}

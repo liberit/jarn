@@ -11,6 +11,14 @@ from jarn.models import Document
 def index(request):
     return render_to_response('index.html', context_instance=RequestContext(request))
 
+def documents(request):
+    docs = Document.objects.all()
+    return render_to_response('documents.html', {'documents': docs}, context_instance=RequestContext(request))
+
+def document(request, doc_id):
+    doc = Document.objects.get(id__exact=doc_id)
+    return render_to_response('document.html', {'document': doc}, context_instance=RequestContext(request))
+
 @login_required(login_url='/login')
 def upload(request):
     if request.method == 'POST':
@@ -19,7 +27,7 @@ def upload(request):
             f = request.FILES['file']
             if f.name.endswith('.odt'):
                 odt = ODT(f)
-                d = Document(title=form.cleaned_data['name'], json=odt.json(), author=request.user)
+                d = Document(title=form.cleaned_data['name'], html=odt.html(), author=request.user)
                 d.save()
                 return HttpResponse(odt.json())
             return redirect('/')

@@ -15,11 +15,14 @@ class Tag(models.Model):
 class Document(models.Model):
     title       = models.CharField(max_length=1023)
     author      = models.ForeignKey(User)
-    json        = models.TextField()
+    html        = models.TextField()
     added       = models.DateTimeField(auto_now=True)
     groups      = models.ManyToManyField(Group)
     tags        = models.ManyToManyField(Tag)
     metas       = models.ManyToManyField(MetaData)
+
+    class Meta:
+        ordering = ["added"]
 
 
 class Comment(models.Model):
