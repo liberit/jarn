@@ -28,18 +28,13 @@ Released   : 20091119
 
         <div id="left"><!-- Begin Top Area Left -->
             <ul>
-                <li><a href="#">Some</a></li>
-                <li><a href="#">Secondary</a></li>
-                <li><a href="#">Links</a></li>
-                <li><a href="#">For</a></li>
-                <li><a href="#">You</a></li>
+                <li><a href="/">Home</a></li>
             </ul>
         </div><!-- End Top Area Left -->
 
         <div id="right"><!-- Begin Top Area Right -->
 		    <ul>
-			    <li><a href="#">More</a></li>
-				<li><a href="#">Information</a></li>
+             <li>{% if request.user.username %}<a href="#">{{ request.user.username }}</a> {{ request.user.email }} (<a href="/logout">logout</a>){% else %}<a href="/login">log in</a>{% endif %}</li>
 			</ul>
         </div><!-- End Top Area Right -->
 
@@ -47,11 +42,7 @@ Released   : 20091119
 
     <div id="header">
             <div id="logo">
-                <h1><a href="#">Jarn</a></h1>
-				<h2>A Premium versatile theme with multiple regions</h2>
-            </div>
-            <div id="middle">
-            <p>You can put an ad or other information here</p>
+             <h1>{% block title %}<a href="#">Jarn</a>{% endblock %}</h1>
             </div>
             <div id="search">
 

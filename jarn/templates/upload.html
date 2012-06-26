@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+{{ request }}
 <div class="post">
 <form action="" method="post" enctype="multipart/form-data">
     {% csrf_token %}
