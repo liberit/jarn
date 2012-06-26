@@ -1,0 +1,9 @@
+
+
+DEPENDENCIES
+============
+
+django
+django-registration
+
+
